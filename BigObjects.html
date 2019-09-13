@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8" />
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(
+        https://fonts.googleapis.com/css?family=Droid+Serif:400,
+        700,
+        400italic
+      );
+      @import url(
+        https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,
+        700,
+        400italic
+      );
+
+      body {
+        font-family: "Droid Serif";
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Yanone Kaffeesatz";
+        font-weight: normal;
+      }
+      .remark-slide-content {
+        font-size: 26px;
+      }
+      .remark-code,
+      .remark-inline-code {
+        font-family: "Ubuntu Mono";
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Big Objects in Salesforce
+
+### Vishal Shanbhag
+
+---
+# Big Objects
+- Store and Manage massive amounts of data on salesforce Platform
+- Capture and manage data with Salesforce Platform tools
+- Run queries designed for consistent performance at scale
+- Ideal for cold storage strategy
+- Uses Big Data Technology in background
+
+---
+
+# Types of Big Objects
+
+
+### Standard Big Objects
+- <b> Standard big objects</b> are defined by Salesforce and are included in Salesforce products. FieldHistoryArchive, part of our Field Audit Trail product, is an example of a standard big object. FieldHistoryArchive allows you to store up to 10 years’ worth of archived field history data, helping you comply with industry regulations related to auditing and data retention.
+
+--
+
+### Custom Big Objects
+- <b>Custom big objects</b> are defined and deployed in Setup. You can create a custom big object in Setup, where you set its definition, fields, and index. The fields defined in a big object’s index determine the big object’s identity and its ability to be queried. We get into how this is all put together in the next unit.
+
+---
+# Big Object's Index
+- The fields defined in your index should be the fields that will be most relevant to your queries, so you have to have foresight and do some planning here.
+- If you’re using SOQL to query your big object, you can query only on the fields that make up your index, in the order you defined them in.
+- Assign the field you will use most frequently in a query filter to the first position in your index.
+
+---
+# Considerations while defining Index
+
+- An index must include at least one custom field and can have up to five custom fields total.
+
+--
+
+- Custom fields included in the index must be marked as required.
+
+--
+
+- Long Text Area fields can’t be included in the index.
+
+--
+
+- The total number of characters across all text fields in an index can’t exceed 50.
+
+--
+
+- Once you’ve created an index, you can’t edit or delete it. To change the index, create another big object with a new index.
+
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create({
+        countIncrementalSlides: false
+      });
+    </script>
+  </body>
+</html>
